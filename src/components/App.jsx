@@ -4,12 +4,17 @@ import { Route, Switch } from 'react-router-dom';
 
 import { Actors, MovieInformation, Movies, NavBar, Profile } from './';
 
+import { useStyles } from './styles';
+
 const App = () => {
+  const classes = useStyles();
+  
   return (
-    <div>
+    <div className={classes.root}>
       <CssBaseline />
       <NavBar />
-      <main>
+      <main className={classes.content}>
+        <div className={classes.toolbar}/>
         <Switch>
           <Route exact path='/movie/:id'>
             <MovieInformation />
@@ -25,7 +30,6 @@ const App = () => {
           </Route>
         </Switch>
       </main>
-      <h1>Hello</h1>
     </div>
   )
 }
